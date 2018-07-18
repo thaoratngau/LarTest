@@ -13,6 +13,6 @@ public function about()
 }
 public function contact()
 {
-	return view('contact');
+	return view('tickets.create');
 }
 }
