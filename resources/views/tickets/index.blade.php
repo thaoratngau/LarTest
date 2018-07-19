@@ -11,7 +11,7 @@
          @endif
          <h2> Tickets </h2>
       </div>
-      @if ($tickets->isEmpty())
+      @if ($tickets->isEmpty())s
       <p> There is no ticket.</p>
       @else
       <table class="table">

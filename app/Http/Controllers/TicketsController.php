@@ -59,7 +59,7 @@ class TicketsController extends Controller
         ));
         $ticket->save();
         Mail::send('thongbao', array("name"=>"BKFA"), function($message) {
-                    $message->to("thainv1612@gmail.com", 'Visitor')->subject('Feedback!');
+                    $message->to("nmwthao96@gmail.com", 'Visitor')->subject('Feedback!');
                     $message->from('nmwthao96@gmail.com','okmom');
                 });
 
@@ -77,8 +77,11 @@ class TicketsController extends Controller
     public function show($slug)
     {
         //
+        // $ticket = Ticket::whereSlug($slug)->firstOrFail();
+        // return view('tickets.show', compact('ticket'));
         $ticket = Ticket::whereSlug($slug)->firstOrFail();
-        return view('tickets.show', compact('ticket'));
+        $comments = $ticket->comments()->get();
+        return view('tickets.show', compact('ticket', 'comments'));
 
     }
 
