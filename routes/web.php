@@ -33,3 +33,15 @@ Route::get('sendemail', function () {
 Route::get('/', function () {
     return view('home');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('users/register', 'Auth\RegisterController@showRegistrationForm');
+Route::post('users/register', 'Auth\RegisterController@register');
+Route::get('users/logout', 'Auth\LoginController@logout');
+
+Route::group(array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'manager') , function (){
+		Route::get('users', 'UsersController@index');
+	});
+

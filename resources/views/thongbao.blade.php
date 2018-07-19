@@ -1,1 +1,1 @@
-123123
+Đã gửi mail bằng Laravel thành công 
